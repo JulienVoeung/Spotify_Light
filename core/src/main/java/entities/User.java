@@ -1,14 +1,16 @@
 package entities;
 
+import java.time.LocalDate;
+
 public class User extends Entity{
 
     private final String firstName;
     private final String lastName;
     private final String pseudo;
     private final String email;
-    private final String dateBirth;
+    private final LocalDate dateBirth;
 
-    public User(String firstName, String lastName, String pseudo, String email, String dateBirth){
+    public User(String firstName, String lastName, String pseudo, String email, LocalDate dateBirth){
         this.firstName = firstName;
         this.lastName = lastName;
         this.pseudo = pseudo;
@@ -32,6 +34,6 @@ public class User extends Entity{
         return this.email;
     }
 
-    public String getDateBirth(){ return this.dateBirth; }
+    public LocalDate getDateBirth(){ return this.dateBirth; }
 
 }

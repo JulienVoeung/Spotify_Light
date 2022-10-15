@@ -36,4 +36,14 @@ public class UserRepository {
         }
         return null;
     }
+
+    public User getUserByEmail(String email){
+        for(User u : this.userRepository){
+            if(u.getEmail().equals(email)){
+                return u;
+            }
+        }
+        return null;
+    }
+
 }

@@ -1,5 +1,6 @@
 package userCase;
 
+import dto.Response;
 import dto.UserDTO;
 import entities.User;
 import error.ValidationError;
@@ -20,13 +21,20 @@ public class UserService {
         return this.userRepository.listUser();
     }
 
-    public void createUser(UserDTO userDTO){
+    public Response createUser(UserDTO userDTO){
         List<ValidationError> validationErrors = validate(userDTO);
         if (!validationErrors.isEmpty()) {
             //throw new ValidationErrorException(validationErrors);
+            Response responseError = new Response(false, "Error of validation on creation of user", validationErrors);
+            return responseError;
         }
 
         User newUser = new User(userDTO.getFirstName(), userDTO.getLastName(), userDTO.getPseudo(), userDTO.getEmail(), userDTO.getDateBirth());
+        this.userRepository.deleteUser(newUser);
+        this.userRepository.addUser(newUser);
+
+        Response responseValidate = new Response(true, "Validation on creation of user", validationErrors);
+        return responseValidate;
     }
 
     private List<ValidationError> validate(UserDTO userDTO) {

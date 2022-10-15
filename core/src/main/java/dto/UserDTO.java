@@ -1,14 +1,16 @@
 package dto;
 
+import java.time.LocalDate;
+
 public class UserDTO {
 
     private String firstName;
     private String lastName;
     private String pseudo;
     private String email;
-    private String dateBirth;
+    private LocalDate dateBirth;
 
-    public UserDTO(String firstName, String lastName, String pseudo, String email, String dateBirth){
+    public UserDTO(String firstName, String lastName, String pseudo, String email, LocalDate dateBirth){
         this.firstName = firstName;
         this.lastName = lastName;
         this.pseudo = pseudo;
@@ -32,6 +34,6 @@ public class UserDTO {
         return this.email;
     }
 
-    public String getDateBirth(){ return this.dateBirth; }
+    public LocalDate getDateBirth(){ return this.dateBirth; }
 
 }
