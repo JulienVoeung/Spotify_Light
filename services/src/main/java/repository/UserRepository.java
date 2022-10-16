@@ -14,8 +14,10 @@ public class UserRepository {
         this.userRepository = new ArrayList<User>();
     }
 
+    //TO ADD A USER TO REPOSITORY
     public void addUser(User user){ this.userRepository.add(user);  }
 
+    //TO DELETE A USER FROM REPOSITORY
     public void deleteUser(User user){
         for(User u : this.userRepository){
             if(u.getId().equals(user.getId())){
@@ -24,10 +26,12 @@ public class UserRepository {
         }
     }
 
+    //TO GET THE REPOSITORY
     public List<User> listUser(){
         return this.userRepository;
     }
 
+    //TO GET A USER BY ID USER
     public User getUserById(UUID id){
         for(User u : this.userRepository){
             if(u.getId().equals(id)){
@@ -37,6 +41,7 @@ public class UserRepository {
         return null;
     }
 
+    //TO GET A USER BY EMAIL
     public User getUserByEmail(String email){
         for(User u : this.userRepository){
             if(u.getEmail().equals(email)){

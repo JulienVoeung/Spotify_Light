@@ -14,8 +14,10 @@ public class SongRepository {
         this.songRepository = new ArrayList<>();
     }
 
+    //TO ADD A SONG TO REPOSITORY
     public void addSong(Song song){ this.songRepository.add(song);  }
 
+    //TO DELETE A SONG FROM REPOSITORY
     public void deleteSong(Song song){
         for(Song s : this.songRepository){
             if(s.getId().equals(song.getId())){
@@ -24,10 +26,12 @@ public class SongRepository {
         }
     }
 
+    //TO GET THE REPOSITORY
     public List<Song> listSong(){
         return this.songRepository;
     }
 
+    //TO GET A SONG BY ID SONG
     public Song getSongById(UUID id){
         for(Song s : this.songRepository){
             if(s.getId().equals(id)){
